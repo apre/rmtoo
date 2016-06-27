@@ -1,0 +1,13 @@
+Name: Use Python 3
+Type: design decision
+Invented on: 2016-06-23
+Invented by: apre
+Owner: development
+Description: \textsl{rmtoo} \textbf{must} use python3.xx as programming
+ language.
+Rationale: \em{python 2.6} is deprecated, \em{python 2.7} is obsolete.
+Now, \em{python 3}
+Status: not done
+Topic: Basics
+Solved by: TestTool
+# Added by rmtoo-normalize-dependencies
