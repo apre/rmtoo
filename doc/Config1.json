@@ -28,7 +28,7 @@
             ]
         }, 
         "inventors": [
-            "flonatel"
+            "flonatel", "apre"
         ], 
         "stakeholders": [
             "development", 
@@ -67,7 +67,12 @@
 			"constraints_dirs": [ "rmtoo/collection/constraints" ] }
 		] 
 	    ],
-            "output": {
+            "output": { 
+     		"xml1": [
+                    {
+                        "output_filename": "artifacts/dump.xml"
+		    }
+                ],
                 "graph": [
                     {
                         "output_filename": "artifacts/req-graph1.dot"
