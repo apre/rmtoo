@@ -13,6 +13,7 @@ import os
 import stat
 import time
 
+
 from rmtoo.lib.configuration.Cfg import Cfg
 from rmtoo.lib.vcs.Interface import Interface
 from rmtoo.lib.logging import tracer
@@ -78,6 +79,7 @@ class FileSystem(Interface):
             self.__base_dir = base_dir
             self.__sub_dir = sub_dir
             self.__filename = os.path.join(self.__base_dir, self.__sub_dir)
+            self.__filename = str(self.__filename).replace("\\","/") # formalize to unix-format
 
         def get_filename(self):
             '''Returns the filename.'''
@@ -120,6 +122,7 @@ class FileSystem(Interface):
             elif stat.S_ISREG(mode):
                 # It's a file, call the callback function
                 sub_filename = os.path.join(sub_dir, dentry)
+                #tracer.debug("found file:[%s] "  % (sub_filename))
                 result.append(FileSystem.FileInfo(base_dir, sub_filename))
             else:
                 raise RMTException(110, "Invalid directory entry type for [%s]"

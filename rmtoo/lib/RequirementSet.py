@@ -62,9 +62,10 @@ class RequirementSet(Digraph, UsableFlag):
             return
         # Handle caching.
         vcs_id = fileinfo.get_vcs_id()
-        rid = fileinfo.get_filename_sub_part()[:-4]
+        rid = fileinfo.get_filename_sub_part()[:-4] # substract extention
+        rid = rid.replace("\\","/")
         req = object_cache.get("Requirement", vcs_id)
-        tracer.info("Reading requirement [%s]" % rid)
+        tracer.info("Reading requirement [%s]" % (rid))
 
         if req == None:
             file_content = fileinfo.get_content()
@@ -485,7 +486,7 @@ class RequirementSet(Digraph, UsableFlag):
             # Mark down the depends on...
             dep_req_node = self._named_nodes[ts]
             # This is exactly the other way as used in the 'Depends on'
-            tracer.debug("Add edge [%s] -> [%s]" %
+            tracer.error("Add edge [%s] -> [%s]" %
                          (dep_req_node.get_requirement().get_id(),
                           req.get_id()))
             Digraph.create_edge(self, dep_req_node, req_node)
