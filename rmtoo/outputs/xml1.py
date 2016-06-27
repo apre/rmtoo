@@ -8,14 +8,24 @@
 # For licencing details see COPYING
 #
 
+from rmtoo.lib.StdOutputParams import StdOutputParams
+from rmtoo.lib.ExecutorTopicContinuum import ExecutorTopicContinuum
+from rmtoo.lib.CreateMakeDependencies import CreateMakeDependencies
 from xml.dom.minidom import Document
 from rmtoo.lib.Requirement import Requirement
 
-class xml1:
+class xml1(StdOutputParams, ExecutorTopicContinuum,
+           CreateMakeDependencies):
 
-    def __init__(self, topic_set, param):
-        self.topic_set = topic_set
-        self.output_filename = param[0]
+    def __init__(self, oconfig):
+        StdOutputParams.__init__(self, oconfig)
+        CreateMakeDependencies.__init__(self)
+        self.output_filename =self._output_filename
+
+#        
+#            topic_set, param):
+#        self.topic_set = topic_set
+#        self.output_filename = param[0]
 
     def set_topics(self, topics):
         self.topic_set = topics.get(param[1])

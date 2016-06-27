@@ -25,7 +25,7 @@ class CC_Components:
     def set_as_string(cs):
         r = set()
         for c in cs:
-            r.add(c.name)
+            r.add(c.get_name())
         return r
 
     def as_string(self):
