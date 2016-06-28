@@ -10,7 +10,13 @@
 '''
 
 import datetime
-from scipy import stats
+
+HAVE_SCIPY=True
+try:
+	from scipy import stats
+except:
+	print("+++ WARN: scipy is missing. Stat computation will be wrong.");
+	HAVE_SCIPY = False
 
 from rmtoo.lib.RequirementStatus import RequirementStatusNotDone, \
     RequirementStatusAssigned, RequirementStatusFinished
@@ -133,10 +139,12 @@ class Statistics:
         eofile = file(filename + ".est", "w")
         x = list(i for i in xrange(0, len(rv)))
         y = list(x[0] + x[1] for x in rv)
-
-        gradient, intercept, _r_value, _p_value, _std_err = \
+        global HAVE_SCIPY
+        if HAVE_SCIPY:
+			gradient, intercept, _r_value, _p_value, _std_err = \
                 stats.linregress(x, y)
-
+        else:
+			gradient = 0
         if gradient >= 0.0:
             print("+++ WARN: gradient is positive [%d]: "
                   "you get more than you finished" % gradient)

@@ -20,7 +20,15 @@ from rmtoo.lib.ExecutorTopicContinuum import ExecutorTopicContinuum
 
 import datetime
 import operator
-from scipy import stats
+
+HAVE_SCIPY=True
+
+try:
+	from scipy import stats
+except:
+	print("+++ WARN: scipy is missing. Stat computation will be wrong.");
+	HAVE_SCIPY = False
+
 from rmtoo.lib.RMTException import RMTException
 from rmtoo.lib.RequirementStatus import RequirementStatusNotDone, \
     RequirementStatusAssigned, RequirementStatusFinished
@@ -238,9 +246,12 @@ class prios(StdOutputParams, ExecutorTopicContinuum, CreateMakeDependencies):
                                           self._start_date, self._end_date)
                 x = list(i for i in xrange(0, len(rv)))
                 y = list(x[0] + x[1] for x in rv)
-
-                gradient, intercept, r_value, p_value, std_err = \
-                     stats.linregress(x, y)
+                global HAVE_SCIPY
+                if HAVE_SCIPY:
+					gradient, intercept, r_value, p_value, std_err = \
+						 stats.linregress(x, y)
+                else:
+					gradient = 0
 
                 if gradient >= 0.0:
                     f.write("Estimated End date & unpredictable & \\\ \n")
