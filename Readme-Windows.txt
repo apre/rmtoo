@@ -5,6 +5,15 @@ BUT IT IS NOT OFFICIALLY SUPPORTED UNDER WINDOWS.
 This document gives some hints to get rmtoo up and running 
 under Windows.
 
+Random notes
+============
+
+* continuum anaconda
+  It is recomended to have the python runtime provided by continuum [7]
+  While it is quite big, it contains all dependencies out of the box,
+  including the hard to install scipy extention.
+
+
 * cygwin
   rmtoo was successfully tested using cygwin [1].  Please download the 
   cygwin setup.exe file and follow the install instructions.  Choose the 
@@ -46,3 +55,4 @@ sf@flonatel.org
 [4] http://sourceforge.net/projects/scipy/
 [5] http://www.lfd.uci.edu/~gohlke/pythonlibs/
 [6] http://www.graphviz.org/Download_windows.php
+[7] https://www.continuum.io/downloads
