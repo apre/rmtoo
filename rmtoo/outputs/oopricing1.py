@@ -16,6 +16,25 @@ from rmtoo.lib.ExecutorTopicContinuum import ExecutorTopicContinuum
 from rmtoo.lib.logging import tracer
 from rmtoo.lib.CreateMakeDependencies import CreateMakeDependencies
 
+
+# To find the correct version of odf-py (and friends) [the rmtoo
+# local version must be used], the sys.path is scanned and when a
+# sp/rmtoo/contrib is found, this is included (prepended) to sys.path.
+# This can be removed once the git-python is removed.
+# (Calling this during the main does not help - because this might
+# already been loaded.) 
+# Note that this is a hack which shourd be removed when using virtualenv.
+import sys
+import os
+for sp in sys.path:
+    rc = os.path.normpath(os.path.join(sp, 'rmtoo/contrib'))
+    if os.path.exists(rc):
+        print("insert %s" % rc)	
+        sys.path.insert(0, rc)
+        sys.path.insert(0, os.path.normpath(os.path.join(sp, 'rmtoo/contrib',"odfpy-svn20100810")))
+        break
+		
+
 # imports from python-odf
 from odf.opendocument import OpenDocumentSpreadsheet
 import odf.table

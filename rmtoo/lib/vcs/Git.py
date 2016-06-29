@@ -16,15 +16,18 @@ import sys
 # To find the correct version of git-python (and friends) [the rmtoo
 # local version must be used], the sys.path is scanned and when a
 # sp/rmtoo/contrib is found, this is included (prepended) to sys.path.
-# This can be removed once the git-pyhton is removed.
+# This can be removed once the git-python is removed.
 # (Calling this during the main does not help - because this might
 # already been loaded.) 
 # Note that this is a hack which will be removed when the API 
 # to the git-python is stable.
 for sp in sys.path:
-    rc = os.path.join(sp, 'rmtoo/contrib')
+    rc = os.path.normpath(os.path.join(sp, 'rmtoo/contrib'))
     if os.path.exists(rc):
         sys.path.insert(0, rc)
+        sys.path.insert(0, os.path.normpath(os.path.join(sp, 'rmtoo/contrib',"GitPython-0.3.2.RC1")))
+        sys.path.insert(0, os.path.normpath(os.path.join(sp, 'rmtoo/contrib',"gitdb-0.5.1")))
+        sys.path.insert(0, os.path.normpath(os.path.join(sp, 'rmtoo/contrib',"async-0.6.1")))
         break
 #pylint: disable=F0401
 import git
