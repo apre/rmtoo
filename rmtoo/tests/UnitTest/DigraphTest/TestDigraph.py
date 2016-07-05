@@ -49,7 +49,7 @@ class TestDigraph:
         try:
             d = digraph_create_from_dict(d)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 24)
 
     def test_constructor_006(self):
@@ -99,7 +99,7 @@ class TestDigraph:
         try:
             n = dg.find_wt("NotThere")
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 23)
 
     def test_add_node_01(self):
@@ -111,6 +111,6 @@ class TestDigraph:
         try:
             dg.add_node(n2)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 39)
 

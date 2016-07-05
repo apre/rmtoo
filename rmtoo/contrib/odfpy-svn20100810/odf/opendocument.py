@@ -605,7 +605,7 @@ def load(odffile):
             inpsrc.setByteStream(StringIO(xmlpart))
             parser.parse(inpsrc)
             del doc._parsing
-        except KeyError, v: pass
+        except KeyError as v: pass
     # FIXME: Add subobjects correctly here
     for mentry,mvalue in manifest.items():
         if mentry[:9] == "Pictures/" and len(mentry) > 9:

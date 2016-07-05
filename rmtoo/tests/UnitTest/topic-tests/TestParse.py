@@ -36,7 +36,7 @@ class TestParse:
             tinmod = TestInputModules()
             topicset = TopicSet(cfg, tvcs, "bkdkd", tobjcache, tinmod)
             assert(False)
-        except AssertionError, ae:
+        except AssertionError as ae:
             pass
 
     def test_positive_02(self):

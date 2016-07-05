@@ -24,6 +24,6 @@ class TestOutputOneComponent:
         try:
             oc.rewrite(dr)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 69)
 

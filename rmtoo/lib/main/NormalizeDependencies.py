@@ -35,6 +35,6 @@ def main_impl(args, mstdout, mstderr):
 def main(args, mstdout, mstderr, main_func=main_impl, exitfun=sys.exit):
     try:
         exitfun(not main_func(args, mstdout, mstderr))
-    except RMTException, rmte:
+    except RMTException as rmte:
         mstderr.write("+++ ERROR: Exception occurred: %s\n" % rmte)
         exitfun(1)

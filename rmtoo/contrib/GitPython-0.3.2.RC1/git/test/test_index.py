@@ -318,7 +318,7 @@ class TestIndex(TestBase):
 		fp.close()
 		try:
 			index.checkout(test_file)
-		except CheckoutError, e:
+		except CheckoutError as e:
 			assert len(e.failed_files) == 1 and e.failed_files[0] == os.path.basename(test_file)
 			assert (len(e.failed_files) == len(e.failed_reasons)) and isinstance(e.failed_reasons[0], basestring)
 			assert len(e.valid_files) == 0

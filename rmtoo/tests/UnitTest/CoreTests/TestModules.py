@@ -57,7 +57,7 @@ class TestModules(unittest.TestCase):
             mods = InputModules(os.path.join(mod_base_dir, "modules03"),
                            {}, [], mods_list("modules03", mod_base_dir))
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 27)
 
     def test_simple_04(self):
@@ -67,7 +67,7 @@ class TestModules(unittest.TestCase):
                            {}, [], mods_list("modules04", mod_base_dir))
             mods.debug_output()
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 26)
 
     def test_simple_05(self):

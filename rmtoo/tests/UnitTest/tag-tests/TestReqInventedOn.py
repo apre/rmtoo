@@ -36,7 +36,7 @@ class TestReqInventedOn:
         try:
             name, value = rt.rewrite("InventedOn-test", req)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 7)
 
     def test_negative_02(self):
@@ -48,6 +48,6 @@ class TestReqInventedOn:
         try:
             name, value = rt.rewrite("InventedOn-test", req)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 8)
 

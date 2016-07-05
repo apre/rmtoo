@@ -65,7 +65,7 @@ class TestReqType:
         try:
             name, value = rt.rewrite("Type-test", req)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 18)
 
     def test_negative_02(self):
@@ -77,6 +77,6 @@ class TestReqType:
         try:
             name, value = rt.rewrite("Type-test", req)
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             assert(rmte.id() == 19)
 

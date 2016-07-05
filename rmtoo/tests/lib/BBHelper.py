@@ -123,7 +123,7 @@ def prepare_result_is_dir():
 def makedirs2(d):
     try:
         os.makedirs(d)
-    except OSError, ose:
+    except OSError as ose:
         # If it already exists - it is no error.
         pass
 

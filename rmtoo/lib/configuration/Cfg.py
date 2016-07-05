@@ -172,7 +172,7 @@ class Cfg:
            If key is not found a RMTException is thrown.'''
         try:
             return self.get_raw(key)
-        except CfgEx, cex:
+        except CfgEx as cex:
             raise RMTException(96, "Mandatory configuration parameter "
                                "[%s] not found. (Root cause: [%s])"
                                % (key, cex))

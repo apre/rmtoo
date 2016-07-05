@@ -78,7 +78,7 @@ class prios(StdOutputParams, ExecutorTopicContinuum, CreateMakeDependencies):
                     prios_assigned.append(tr)
                 elif isinstance(status, RequirementStatusFinished):
                     prios_finished.append(tr)
-            except KeyError, ke:
+            except KeyError as ke:
                 raise RMTException(35, "%s: KeyError: %s" % (tr.id, ke))
 
         return prios_impl, prios_detail, prios_selected, \

@@ -113,7 +113,7 @@ class TestRecordTxt:
         try:
             txt_doc_dict["Note"].get_content()
             assert(False)
-        except KeyError, ke:
+        except KeyError as ke:
             pass
         assert(txt_doc.to_string()==doc3)
 

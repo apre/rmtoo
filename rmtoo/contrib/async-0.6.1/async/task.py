@@ -126,7 +126,7 @@ class Task(Node):
 				self._num_writers -= 1
 				self._wlock.release()
 			# END handle writer count
-		except Exception, e:
+		except Exception as e:
 			# be sure our task is not scheduled again
 			self.set_done()
 			

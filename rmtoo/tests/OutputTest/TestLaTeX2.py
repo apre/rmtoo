@@ -56,7 +56,7 @@ class TestOutputLaTeX2:
             l2.topic_set_pre(ttopic_set)
             topic.execute(l2, "")
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             pass
         l2.topic_set_post(ttopic_set)
         delete_tmp_dir(tmpdir)
@@ -97,7 +97,7 @@ class TestOutputLaTeX2:
             l2.topic_set_pre(None)
             dnreq.execute(l2, "")
             assert(False)
-        except RMTException, rmte:
+        except RMTException as rmte:
             pass
         l2.topic_set_post(ttopic_set)
         delete_tmp_dir(tmpdir)
