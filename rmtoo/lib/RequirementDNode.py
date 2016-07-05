@@ -30,6 +30,7 @@ class RequirementDNode(Digraph.Node):
         Digraph.Node.__init__(self, requirement.get_id())
         self.__requirement = requirement
 
+
     def get_requirement(self):
         '''Returns the requirement from inside.'''
         return self.__requirement

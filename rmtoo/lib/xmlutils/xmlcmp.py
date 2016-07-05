@@ -25,6 +25,7 @@ import copy
 from xml.dom.minidom import parse, parseString
 from rmtoo.lib.logging import tracer, logger
 from rmtoo.lib.logging.LogFormatter import LogFormatter
+import os
 
 def xml_check_type(xml_doc_a, xml_doc_b, xpath):
     '''Check for the type.'''
@@ -118,11 +119,13 @@ def xmlequals(xml_doc_a, xml_doc_b, xpath):
 
 def xmlcmp_files(file1, file2):
     '''Compares two xml files.'''
-    doc1 = parse(file1)
-    doc2 = parse(file2)
+
+    doc1 = parse(os.path.normpath(file1))
+    doc2 = parse(os.path.normpath(file2))
     return xmlequals(doc1.documentElement, doc2.documentElement, "")
 
 def xmlcmp_strings(str1, str2):
+
     '''Compares two xml string.'''
     doc1 = parseString(str1)
     doc2 = parseString(str2)

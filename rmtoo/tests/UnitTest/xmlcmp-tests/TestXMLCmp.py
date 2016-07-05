@@ -23,7 +23,7 @@ class TestXMLCmp(unittest.TestCase):
         assert(r == True)
 
     def test_pos02(self):
-        "xmlcmp: same tags with different arrtibutes"
+        "xmlcmp: same tags with different attributes"
         r, s = xmlcmp_strings(
             '<hu><t a="1"/><t b="2"/></hu>',
             '<hu><t b="2"/><t a="1"/></hu>')

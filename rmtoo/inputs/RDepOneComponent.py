@@ -37,8 +37,9 @@ class RDepOneComponent(Digraph.Node):
             # Everything is ok: graph is connected
             tracer.debug("Finished.")
             return True
+        
 
         raise RMTException(
-            69, "Requirements graph has two or more connected "
+            69, "Requirements graph has two or more (%d) connected "
             "components. Please fix the edges between the nodes."
-            "Found components: %s" % components.as_string())
+            "Found components: %s" % (components.get_length(),components.as_string()))

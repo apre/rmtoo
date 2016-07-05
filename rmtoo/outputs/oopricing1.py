@@ -29,7 +29,6 @@ import os
 for sp in sys.path:
     rc = os.path.normpath(os.path.join(sp, 'rmtoo/contrib'))
     if os.path.exists(rc):
-        print("insert %s" % rc)	
         sys.path.insert(0, rc)
         sys.path.insert(0, os.path.normpath(os.path.join(sp, 'rmtoo/contrib',"odfpy-svn20100810")))
         break

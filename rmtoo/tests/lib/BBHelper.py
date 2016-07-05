@@ -57,7 +57,7 @@ def compare_xml(mdir, fname):
 
     file1 = os.path.join(os.environ["rmtoo_test_dir"], fname)
     file2 = os.path.join(mdir, "result_should", fname)
-
+	
     r, s = xmlcmp_files(file1, file2)
 
     if not r:
