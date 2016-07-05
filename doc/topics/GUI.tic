@@ -12,3 +12,4 @@ Text: One and a half year after the first idea to create a free and
  logic will be implemented in a \textsl{rmtoo}-server.  There will be
  some clients which are very thin and only render the data in
  different technologies (e.g. GTK, browser, Java, ...)
+IncludeRequirements: full

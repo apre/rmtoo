@@ -12,4 +12,6 @@ Owner: development
 Status: not done
 Priority: development:10
 Effort estimation: 34
-Topic: Basics
+Topic: GUI
+
+Solved by: gui/webGUI
