@@ -1,0 +1,10 @@
+<h1>topics</h1>
+	<a class="nav-item nav-link" href="/">Home</a><br/>
+
+List of topics:
+<ul>
+{% for r in reqs %}
+  <li><a href="../../../../reqs/raw_view/{{ req_path }}/{{ r }}">{{ r }}</a></li>
+{% endfor %}
+</ul>
+	

@@ -1,0 +1,10 @@
+<h1>topics</h1>
+	<a class="nav-item nav-link" href="/">Home</a><br/>
+
+Continum versions:
+<ul>
+{% for version in continum_versions %}
+  <li><a href="../view/{{ current_topic }}/{{ version[0] }}">{{ topic }} {{ version[1].get_vcs_id() }}</a></li>
+{% endfor %}
+</ul>
+	

@@ -1,0 +1,30 @@
+<h1>Requierement raw viewer</h1>
+	<a class="nav-item nav-link" href="../../../../topics/view/{{ req_path }}">List</a> -
+
+	<a class="nav-item nav-link" href="/">Home</a><br/>
+
+
+<h2>Requierement field viewer</h2>
+<ul>
+{% for k in requirement.values.keys() %}
+  <li>{{ k }}: <i> {{ requirement.values[k]}}</i></li>
+{% endfor %}
+</ul>
+
+
+	<h2>debug stuff</h2>
+
+Requirement [{{ requirement }}]<br/>
+values:
+{{ requirement.values }}
+<br/>
+Status: {{ requirement.get_status()}}<br/>
+Prio: {{ requirement.get_prio()}}<br/>
+EFE: {{ requirement.get_efe_or_0()}}<br/>
+get_topic: {{ requirement.get_topic()}}<br/>
+<br/>
+
+
+
+
+	

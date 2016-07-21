@@ -1,0 +1,10 @@
+<h1>topics</h1>
+	<a class="nav-item nav-link" href="/">Home</a><br/>
+
+List of topics:
+<ul>
+{% for topic in topic_names %}
+  <li><a href="topic/{{ topic }}">{{ topic }}</a></li>
+{% endfor %}
+</ul>
+	
